@@ -1,1 +1,0 @@
-package com.ofss.stockmanager.dto;
