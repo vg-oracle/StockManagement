@@ -51,4 +51,14 @@ public class TransactionService {
     public void delete(Long id) {
         repo.delete(getById(id));
     }
+
+    // New method to get transactions by customerId
+    public List<Transaction> getTransactionsByCustomerId(Long customerId) {
+        List<Transaction> transactions = repo.findByCustomer_CustomerId(customerId);
+        if (transactions.isEmpty()) {
+            throw new ResourceNotFoundException("No transactions found for customer with ID: " + customerId);
+        }
+        return transactions;
+    }
+
 }
